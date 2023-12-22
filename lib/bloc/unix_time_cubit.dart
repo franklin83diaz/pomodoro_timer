@@ -7,4 +7,11 @@ class UnixtimeCubit extends Cubit<int> {
   void decrement() => emit(state - 1);
 
   void reset() => emit(0);
+
+  void start() async {
+    for (int i = 0; i < (25 * 60); i++) {
+      await Future.delayed(const Duration(seconds: 1));
+      emit(state + 1);
+    }
+  }
 }
